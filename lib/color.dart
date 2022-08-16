@@ -6,5 +6,6 @@ class AppColor {
   static Color backgroundColor = const Color(0xff464646);
   static Color textColor = const Color(0xffF2F2F2);
   static Color headingColor = const Color(0xffFFFFFF);
+  static Color subtitleColor = const Color(0xffbababa);
 
 }
