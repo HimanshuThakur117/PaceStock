@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pace_stock/color.dart';
+import 'package:pace_stock/Utils/color.dart';
 import 'package:http/http.dart' as http;
-import 'package:pace_stock/customBox.dart';
-import 'package:pace_stock/utils.dart';
+import 'package:pace_stock/widgets/customBox.dart';
+import 'package:pace_stock/Utils/utils.dart';
 
-import 'fetchApi.dart';
+import 'Api function/fetchApi.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

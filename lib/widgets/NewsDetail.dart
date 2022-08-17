@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'color.dart';
+import 'Utils/color.dart';
 
 Widget NewsPreview(context, imageurl, author, title, time, description, url) {
   return  Container(

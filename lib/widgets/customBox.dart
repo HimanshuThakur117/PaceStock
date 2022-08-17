@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pace_stock/NewsDetail.dart';
 
-import 'color.dart';
+import '../Utils/color.dart';
 
 class NewBox extends StatelessWidget {
   final String imageurl,author,title, time, description, url;
