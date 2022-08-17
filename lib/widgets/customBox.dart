@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pace_stock/NewsDetail.dart';
+
 
 import '../Utils/color.dart';
+import 'NewsDetail.dart';
 
 class NewBox extends StatelessWidget {
   final String imageurl,author,title, time, description, url;
@@ -19,17 +20,17 @@ class NewBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(16.0),
-      child: InkWell(
-        onTap: () {
-           Navigator.push(
+    return InkWell(
+      onTap: () {
+         Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => NewsPreview(context, imageurl,author,title, time, description, url )),
   );
-         
-        },
        
+      },
+     
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Hero(
             tag: time,
             child: Container(
@@ -101,7 +102,6 @@ class NewBox extends StatelessWidget {
             ),
           ),
         ),
-      
-    );
+      );
   }
 }
