@@ -2,10 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive/hive.dart';
 import 'package:pace_stock/Utils/color.dart';
 import 'package:http/http.dart' as http;
 import 'package:pace_stock/widgets/customBox.dart';
 import 'package:pace_stock/Utils/utils.dart';
+import 'package:path_provider/path_provider.dart';
+
 
 import 'Api function/fetchApi.dart';
 
@@ -16,13 +19,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   late Future<List> news;
+  
+  
+
+  
 
   @override
   void initState() {
     super.initState();
-    news = fetchnews();
+    news = fetchnews(); 
+  
   }
+
+  
+// void WDinHive( ) {
+//   _mybox.put('article', "data has been pushed");
+//   print(_mybox.get('article'));
+//    //_mybox.get('article');
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: FutureBuilder(
                   future: fetchnews(),
                   builder: ((context, snapshot) {
+                    
                     if (snapshot.hasData) {
+                       
                       return ListView.builder(
                           itemCount: snapshot.data!.length,
                           itemBuilder: ((context, index) {
-                            return NewBox(
+                            return  NewBox(
                               url: snapshot.data![index]['url'],
                               imageurl:
                                   snapshot.data![index]['urlToImage'] != null
