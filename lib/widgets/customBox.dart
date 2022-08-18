@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,71 +34,74 @@ class NewBox extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Hero(
             tag: time,
-            child: Container(
-              height: 300,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(imageurl),
-                ),
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 130,
+            child: CachedNetworkImage(
+              imageUrl: imageurl,
+                 imageBuilder: (context, imageProvider) => Container(
+                height: 300,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: imageProvider,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      title,
-                      style: GoogleFonts.robotoSlab(
-                        fontSize: 20,
-                        fontStyle: FontStyle.normal,
-                        
-                        color: AppColor.textColor,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 130,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        title,
+                        style: GoogleFonts.robotoSlab(
+                          fontSize: 20,
+                          fontStyle: FontStyle.normal,
+                          
+                          color: AppColor.textColor,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 16,left: 16),
-                          child: Text(
-                            author,
-                            style: GoogleFonts.robotoSlab(
-                              fontSize: 12,
-                              fontStyle: FontStyle.normal,
-                              color: AppColor.subtitleColor,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16,left: 16),
+                            child: Text(
+                              author,
+                              style: GoogleFonts.robotoSlab(
+                                fontSize: 12,
+                                fontStyle: FontStyle.normal,
+                                color: AppColor.subtitleColor,
+                              ),
                             ),
                           ),
-                        ),
-                    
-                        SizedBox(
-                          width: 10,
-                        ),
-                    
-                        Padding(
-                           padding: const EdgeInsets.only(right: 16,left: 16),
-                          child: Text(
-                            time,
-                            style: GoogleFonts.robotoSlab(
-                              fontSize: 12,
-                               fontStyle: FontStyle.normal,
-                              color: AppColor.subtitleColor,
+                      
+                          SizedBox(
+                            width: 10,
+                          ),
+                      
+                          Padding(
+                             padding: const EdgeInsets.only(right: 16,left: 16),
+                            child: Text(
+                              time,
+                              style: GoogleFonts.robotoSlab(
+                                fontSize: 12,
+                                 fontStyle: FontStyle.normal,
+                                color: AppColor.subtitleColor,
+                              ),
                             ),
                           ),
-                        ),
-                    
-                      ],
-                    ),
-                  )
-                ],
+                      
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
